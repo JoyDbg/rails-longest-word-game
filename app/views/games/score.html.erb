@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Result</h1>
+
+  <% unless @word_included %>
+    <p>Sorry but <%= params[:word] %> can't be built out of <%= @grid %></p>
+  <% end %>
+
+  <% if @word_included && !@english_word %>
+    <p>Sorry but <%= params[:word] %> does not seem to be a valid English word...</p>
+   <% elsif @word_included && @english_word %>
+    <p>Congratulations! <%= params[:word] %> is a valid English word!</p>
+  <% end %>
+
+  <p><%= link_to"Play again", new_path %></p>
+</div>
